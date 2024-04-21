@@ -1,0 +1,63 @@
+﻿<Window x:Class="KrytoiKalculator.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KrytoiKalculator"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Cursor="Hand" Background="LightPink">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="Left_" Content="(" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="1" Grid.Row="2" Background="#f153ff" FontSize="15" Click="LeftSkobka" Command="{Binding AddLeftSkobka}"/>
+        <Button Content=")" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="2" Grid.Row="2" Background="#f153ff" FontSize="15" Click="RightSkobka"/>
+        <Button Content="%" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="3" Grid.Row="2" Background="#f153ff" FontSize="15" Click="Percent"/>
+        <Button Content="Clear" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="4" Grid.Row="2" Background="#f153ff" FontSize="15" Click="Clear"/>
+        <Button Content="/" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="4" Grid.Row="3" Background="#f153ff" FontSize="15" Click="Delenie" Height="32" Margin="0,4,0,0" VerticalAlignment="Top"/>
+        <Button Content="*" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="4" Grid.Row="4" Background="#f153ff" FontSize="15" Click="Ymnoshenie"/>
+        <Button Content="-" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="4" Grid.Row="5" Background="#f153ff" FontSize="15" Click="Vichetanie"/>
+        <Button Content="+" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="4" Grid.Row="6" Background="#f153ff" FontSize="15" Click="Sloshenie"/>
+        <Button Content="7" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="1" Grid.Row="3" Background="#ea80fc" FontSize="15" Click="Seven"/>
+        <Button Content="8" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="2" Grid.Row="3" Background="#ea80fc" FontSize="15" Click="Eight"/>
+        <Button Content="9" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="3" Grid.Row="3" Background="#ea80fc" FontSize="15" Click="Nine"/>
+        <Button Content="4" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="1" Grid.Row="4" Background="#ea80fc" FontSize="15" Click="Four"/>
+        <Button Content="5" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="2" Grid.Row="4" Background="#ea80fc" FontSize="15" Click="five"/>
+        <Button Content="6" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="3" Grid.Row="4" Background="#ea80fc" FontSize="15" Click="Six"/>
+        <Button Content="1" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="1" Grid.Row="5" Background="#ea80fc" FontSize="15" Click="One"/>
+        <Button Content="2" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="2" Grid.Row="5" Background="#ea80fc" FontSize="15" Height="32" Margin="0,4,0,0" VerticalAlignment="Top" Click="two"/>
+        <Button Content="3" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="3" Grid.Row="5" Background="#ea80fc" FontSize="15" Click="Three"/>
+        <Button Content="0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="1" Grid.Row="6" Background="#ea80fc" FontSize="15" Click="Zero"/>
+        <Button Content="." Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="2" Grid.Row="6" Background="#ea80fc" FontSize="15" Click="Dot"/>
+        <Button Content="=" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.Column="3" Grid.Row="6" Background="#ea80fc" FontSize="15" Click="Result"/>
+        <TextBox MaxWidth="400" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Введите уравнение" AcceptsReturn="True"
+        Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="1" IsEnabled="False" x:Name="DlyaVvodaTextBox"/>
+        <TextBlock Text="{Binding Selected.result}" Grid.Column="5" Grid.Row="1"/>
+    </Grid>
+</Window>
